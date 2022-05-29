@@ -31,7 +31,7 @@ test_y = test_data['category']
 test_x = test_data['review']
 
 vector = CountVectorizer()
-train_x = vector.fit_transform(train_x)
+train_x = vector.fit_transform(train_x).toarray()
 
 
 test_x = vector.transform(test_x).toarray()
@@ -47,4 +47,4 @@ nb = GaussianNB()
 nb.fit(train_x, train_y)
 
 
-nb.score(test_x,test_y)
+print(nb.score(test_x,test_y))
